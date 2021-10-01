@@ -2,6 +2,7 @@
 
 package lesson3.task1
 
+import kotlin.math.max
 import kotlin.math.sqrt
 
 // Урок 3: циклы
@@ -138,7 +139,17 @@ fun isCoPrime(m: Int, n: Int): Boolean = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun revert(n: Int): Int = TODO()
+fun revert(n: Int): Int {
+    var number = n
+    var y = 0
+    while (number > 0) {
+        val x = number % 10
+        number = number / 10
+        y = y * 10
+        y = y + x
+    }
+    return(y)
+}
 
 /**
  * Средняя (3 балла)
