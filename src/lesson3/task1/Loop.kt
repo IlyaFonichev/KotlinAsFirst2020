@@ -214,4 +214,14 @@ fun squareSequenceDigit(n: Int): Int = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun fibSequenceDigit(n: Int): Int = TODO()
+fun fibSequenceDigit(n: Int): Int {
+    var t1 = 1
+    var t2 = 1
+    for (i in 3..n) {
+        print("$t1 + ")
+        val s = t1 + t2
+        t1 = t2
+        t2 = s
+    }
+    return(t2)
+}
