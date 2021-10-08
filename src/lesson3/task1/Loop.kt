@@ -90,7 +90,7 @@ fun fib(n: Int): Int {
         t1 = t2
         t2 = s
     }
-    return(t2)
+    return t2
 }
 
 /**
@@ -158,7 +158,7 @@ fun revert(n: Int): Int {
         y = y * 10
         y = y + x
     }
-    return(y)
+    return y
 }
 
 /**
@@ -224,14 +224,4 @@ fun squareSequenceDigit(n: Int): Int = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun fibSequenceDigit(n: Int): Int {
-    var t1 = 1
-    var t2 = 1
-    for (i in 3..n) {
-        print("$t1 + ")
-        val s = t1 + t2
-        t1 = t2
-        t2 = s
-    }
-    return(t2)
-}
+fun fibSequenceDigit(n: Int): Int = TODO()
