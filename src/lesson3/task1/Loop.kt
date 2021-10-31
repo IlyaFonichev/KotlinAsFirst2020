@@ -3,6 +3,7 @@
 package lesson3.task1
 
 import kotlin.math.max
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 // Урок 3: циклы
@@ -224,4 +225,29 @@ fun squareSequenceDigit(n: Int): Int = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun fibSequenceDigit(n: Int): Int = TODO()
+fun fibSequenceDigit(n: Int): Int {
+    var count: Int
+    var x = 0
+    var quantity = 0
+    var p = 0
+    var f: Int
+    var t: Int
+    for (i in 1..n) {
+        f = fib(i)
+        t = f
+        count = 0
+        while (t > 0) {
+            t /= 10
+            count++
+        }
+        var d = 10.0.pow(count - 1).toInt()
+        while ((d > 0) && (quantity != n)) {
+            x = ((f / d) % 10)
+            f %= d
+            quantity++
+            d /= 10
+        }
+        if (quantity == n) p = x
+    }
+    return p
+}
