@@ -242,28 +242,15 @@ fun decimalFromString(str: String, base: Int): Int = TODO()
  * Например: 23 = XXIII, 44 = XLIV, 100 = C
  */
 fun roman(n: Int): String {
-    val a = listOf("I", "V", "X", "L", "C", "D", "M")
-    var s = ""
+    val r = listOf("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I")
+    val a = listOf(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
     var y = n
-    var d = 0
-    while (y > 0) {
-        val x = y % 10
-        if (x > 0) {
-            if (x <= 3) {
-                for (i in 1..x)
-                    s = a[2 * d] + s
-            } else if (x < 5) {
-                s = a[2 * d] + a[2 * d + 1] + s
-            } else if (x == 5) {
-                s = a[2 * d + 1] + s
-            } else if (x <= 8) {
-                for (i in 1..(x - 5))
-                    s = a[2 * d] + s
-                s = a[2 * d + 1] + s
-            } else s = a[2 * d] + a[2 * d + 2] + s
+    var s = ""
+    for (i in a.indices) {
+        while (y >= a[i]) {
+            s += r[i]
+            y -= a[i]
         }
-        y /= 10
-        d += 1
     }
     return s
 }
