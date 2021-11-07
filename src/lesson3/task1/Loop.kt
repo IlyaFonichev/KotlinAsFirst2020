@@ -1,4 +1,4 @@
-@file:Suppress("UNUSED_PARAMETER")
+@file:Suppress("UNUSED_PARAMETER", "UNUSED_EXPRESSION")
 
 package lesson3.task1
 
@@ -227,9 +227,8 @@ fun squareSequenceDigit(n: Int): Int = TODO()
  */
 fun fibSequenceDigit(n: Int): Int {
     var count: Int
-    var x = 0
     var quantity = 0
-    var p = 0
+    var x = 0
     var f: Int
     var t: Int
     for (i in 1..n) {
@@ -247,7 +246,7 @@ fun fibSequenceDigit(n: Int): Int {
             quantity++
             d /= 10
         }
-        if (quantity == n) p = x
+        if (quantity == n) x
     }
-    return p
+    return x
 }
