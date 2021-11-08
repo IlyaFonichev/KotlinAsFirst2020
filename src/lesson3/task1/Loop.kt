@@ -246,7 +246,6 @@ fun fibSequenceDigit(n: Int): Int {
             quantity++
             d /= 10
         }
-        if (quantity == n) x
     }
     return x
 }
