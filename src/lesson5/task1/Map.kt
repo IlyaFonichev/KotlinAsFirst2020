@@ -210,7 +210,8 @@ fun canBuildFrom(chars: List<Char>, word: String): Boolean = TODO()
  * Например:
  *   extractRepeats(listOf("a", "b", "a")) -> mapOf("a" to 2)
  */
-fun extractRepeats(list: List<String>): Map<String, Int> = TODO()
+fun extractRepeats(list: List<String>): Map<String, Int> =
+    (list.groupingBy { it }.eachCount().filter { it.value > 1 }).toMap()
 
 /**
  * Средняя (3 балла)
