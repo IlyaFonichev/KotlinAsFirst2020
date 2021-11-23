@@ -135,10 +135,8 @@ fun subtractOf(a: MutableMap<String, String>, b: Map<String, String>) {
  * В выходном списке не должно быть повторяющихся элементов,
  * т. е. whoAreInBoth(listOf("Марат", "Семён, "Марат"), listOf("Марат", "Марат")) == listOf("Марат")
  */
-fun whoAreInBoth(a: List<String>, b: List<String>): List<String> {
-    val x = a.intersect(b.toList())
-    return x.toList()
-}
+fun whoAreInBoth(a: List<String>, b: List<String>): List<String> = a.intersect(b).toList()
+
 /**
  * Средняя (3 балла)
  *
@@ -280,7 +278,14 @@ fun propagateHandshakes(friends: Map<String, Set<String>>): Map<String, Set<Stri
  *   findSumOfTwo(listOf(1, 2, 3), 4) -> Pair(0, 2)
  *   findSumOfTwo(listOf(1, 2, 3), 6) -> Pair(-1, -1)
  */
-fun findSumOfTwo(list: List<Int>, number: Int): Pair<Int, Int> = TODO()
+fun findSumOfTwo(list: List<Int>, number: Int): Pair<Int, Int> {
+    var result = Pair(-1, -1)
+    for (item1 in list.indices)
+        for (item2 in item1 + 1 until list.size)
+            if (list[item1] + list[item2] == number) result = Pair(item1, item2)
+            else Pair(-1, -1)
+    return result
+}
 
 /**
  * Очень сложная (8 баллов)
