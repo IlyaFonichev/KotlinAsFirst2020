@@ -114,7 +114,18 @@ fun flattenPhoneNumber(phone: String): String = TODO()
  * Прочитать строку и вернуть максимальное присутствующее в ней число (717 в примере).
  * При нарушении формата входной строки или при отсутствии в ней чисел, вернуть -1.
  */
-fun bestLongJump(jumps: String): Int = TODO()
+fun bestLongJump(jumps: String): Int {
+    val str = jumps.split(" ")
+    var res = -1
+    for (i in str) {
+        if (i.toIntOrNull() != null) {
+            if (i.toInt() != res) {
+                if (i.toInt() > res && i.toInt() != res) res = i.toInt()
+            } else res = -1
+        }
+    }
+    return res
+}
 
 /**
  * Сложная (6 баллов)
@@ -149,7 +160,16 @@ fun plusMinus(expression: String): Int = TODO()
  * Вернуть индекс начала первого повторяющегося слова, или -1, если повторов нет.
  * Пример: "Он пошёл в в школу" => результат 9 (индекс первого 'в')
  */
-fun firstDuplicateIndex(str: String): Int = TODO()
+fun firstDuplicateIndex(str: String): Int {
+    val fail = -1
+    var index = 0
+    val string = str.split(" ")
+    for (element in 0..string.size - 2) {
+        if (string[element].uppercase() == string[element + 1].uppercase()) return index
+        index += string[element].length + 1
+    }
+    return fail
+}
 
 /**
  * Сложная (6 баллов)
