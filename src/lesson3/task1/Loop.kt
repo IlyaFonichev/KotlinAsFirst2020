@@ -155,9 +155,9 @@ fun revert(n: Int): Int {
     var y = 0
     while (number > 0) {
         val x = number % 10
-        number = number / 10
-        y = y * 10
-        y = y + x
+        number /= 10
+        y *= 10
+        y += x
     }
     return y
 }
