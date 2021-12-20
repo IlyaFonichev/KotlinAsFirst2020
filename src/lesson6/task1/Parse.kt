@@ -162,9 +162,9 @@ fun plusMinus(expression: String): Int = TODO()
  */
 fun firstDuplicateIndex(str: String): Int {
     var index = 0
-    val string = str.split(" ")
+    val string = str.split(" ").map { it.uppercase() }
     for (element in 0..string.size - 2) {
-        if (string[element].uppercase() == string[element + 1].uppercase()) return index
+        if (string[element] == string[element + 1]) return index
         index += string[element].length + 1
     }
     return -1

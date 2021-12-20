@@ -123,11 +123,8 @@ fun sibilants(inputName: String, outputName: String) {
  *
  */
 fun centerFile(inputName: String, outputName: String) {
-    var max = 0
-    for (lines in File(inputName).readLines()) {
-        if (lines.trim().length > max)
-            max = lines.trim().length
-    }
+    val lines = File(inputName).readLines().map { it.trim() }
+    val max = if (lines.isNotEmpty()) lines.maxOf { it.length } else 0
     PrintStream(File(outputName)).use { writer ->
         File(inputName).forEachLine { line ->
             writer.println(" ".repeat((max - line.trim().length) / 2) + line.trim())
