@@ -118,10 +118,12 @@ fun bestLongJump(jumps: String): Int {
     val str = jumps.split(" ")
     var res = -1
     for (i in str) {
-        if (i.toIntOrNull() != null) {
-            if (i.toInt() != res) {
-                if (i.toInt() > res && i.toInt() != res) res = i.toInt()
-            } else res = -1
+        if (i.contains(Regex("""[-%\d]"""))) {
+            val iAsInt = i.toIntOrNull() ?: -1
+            if (iAsInt > res) res = iAsInt
+        } else {
+            res = -1
+            break
         }
     }
     return res
