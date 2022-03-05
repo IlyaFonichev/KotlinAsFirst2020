@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
-
+//
 class Tests {
     @Test
     @Tag("Example")
@@ -34,6 +34,8 @@ class Tests {
     @Test
     @Tag("4")
     fun dateStrToDigit() {
+        assertEquals("29.02.4", dateStrToDigit("29 февраля 4"))
+        assertEquals("30.11.1", dateStrToDigit("30 ноября 1"))
         assertEquals("15.07.2016", dateStrToDigit("15 июля 2016"))
         assertEquals("", dateStrToDigit("3 мартобря 1918"))
         assertEquals("18.11.2018", dateStrToDigit("18 ноября 2018"))
@@ -81,9 +83,12 @@ class Tests {
     @Test
     @Tag("6")
     fun bestHighJump() {
+        assertEquals(254, bestHighJump("220 + 254 %+ 228 %- 230 + 232 %%- 234 %"))
+        assertEquals(230, bestHighJump("220 + 224 %+ 228 %- 230 + 232 %%- 234 %"))
+        assertEquals(-1, bestHighJump("226 + 230 %+ xxxx"))
+        assertEquals(-1, bestHighJump("xx xx 226 + 220 %+"))
         assertEquals(226, bestHighJump("226 +"))
         assertEquals(-1, bestHighJump("???"))
-        assertEquals(230, bestHighJump("220 + 224 %+ 228 %- 230 + 232 %%- 234 %"))
     }
 
     @Test
@@ -112,9 +117,12 @@ class Tests {
     @Test
     @Tag("6")
     fun mostExpensive() {
-        assertEquals("", mostExpensive(""))
+        assertEquals("", mostExpensive("35.2 Bebra; Молоко 62.5; Курица 184.0; Конфеты 89.9"))
+        assertEquals("", mostExpensive(" "))
         assertEquals("Курица", mostExpensive("Хлеб 39.9; Молоко 62.5; Курица 184.0; Конфеты 89.9"))
         assertEquals("Вино", mostExpensive("Вино 255.0"))
+        assertEquals("", mostExpensive(""))
+        assertEquals("a", mostExpensive("a 0.0"))
     }
 
     @Test

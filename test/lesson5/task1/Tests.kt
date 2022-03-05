@@ -3,7 +3,7 @@ package lesson5.task1
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
-
+//
 class Tests {
     @Test
     @Tag("Example")
@@ -241,6 +241,14 @@ class Tests {
     @Tag("4")
     fun extractRepeats() {
         assertEquals(
+            mapOf("a" to 4, "b" to 2),
+            extractRepeats(listOf("a", "b", "c", "a", "a", "a", "b"))
+        )
+        assertEquals(
+            mapOf("a" to 4),
+            extractRepeats(listOf("a", "b", "c", "a", "a", "a"))
+        )
+        assertEquals(
             emptyMap<String, Int>(),
             extractRepeats(emptyList())
         )
@@ -306,6 +314,18 @@ class Tests {
     fun findSumOfTwo() {
         assertEquals(
             Pair(-1, -1),
+            findSumOfTwo(listOf(7), 6)
+        )
+        assertEquals(
+            Pair(1, 4),
+            findSumOfTwo(listOf(7, 1, 3, 4, 5), 6)
+        )
+        assertEquals(
+            Pair(-1, -1),
+            findSumOfTwo(listOf(1, 2, 3), 6)
+        )
+        assertEquals(
+            Pair(-1, -1),
             findSumOfTwo(emptyList(), 1)
         )
         assertEquals(
@@ -313,8 +333,24 @@ class Tests {
             findSumOfTwo(listOf(1, 2, 3), 4)
         )
         assertEquals(
+            Pair(1, 3),
+            findSumOfTwo(listOf(1, 2, 3, 4, 5), 6)
+        )
+        assertEquals(
+            Pair(6, 7),
+            findSumOfTwo(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9), 15)
+        )
+        assertEquals(
             Pair(-1, -1),
-            findSumOfTwo(listOf(1, 2, 3), 6)
+            findSumOfTwo(emptyList(), 4)
+        )
+        assertEquals(
+            Pair(1, 3),
+            findSumOfTwo(listOf(1, 2, 5, 2, 1), 4)
+        )
+        assertEquals(
+            Pair(0, 1),
+            findSumOfTwo(listOf(1, 0), 1)
         )
     }
 
